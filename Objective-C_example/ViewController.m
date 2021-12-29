@@ -29,15 +29,12 @@ NSDictionary * books;
     
     _tableview.delegate = self;
     _tableview.dataSource = self;
+    _searchBar.delegate = self; 
     
     [_tableview registerNib:[UINib nibWithNibName:@"bookTableViewCell" bundle:nil]
      forCellReuseIdentifier:@"bookCell"];
     
     [self.tableview reloadData];
-}
-
-- (IBAction)buttonEvent:(UIButton *)sender {
-    [self requestData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -71,30 +68,16 @@ NSDictionary * books;
     cell.priceLabel.text = price;
     cell.registerNumber.text = isbn13;
     
-    
-    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    }
-    
-    
-
-    
-//    NSMutableDictionary *response = [[[allResponse valueForKey:@"title"] objectAtIndex:indexPath.row]mutableCopy];
-//    NSLog(@"table: %@",response);
-    
-//    NSString *cellText = [NSString stringWithFormat:@"title: %@", response];
-//    
-//    [[cell textLabel] setText:cellText];
-    
     return cell;
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)SearchBar {
+    [self requestData:_searchBar.text page: 1];
+    [SearchBar resignFirstResponder];
+}
 
-- (void)requestData {
-    mainstr = [NSString stringWithFormat:@"https://api.itbook.store/1.0/search/notebook/1"];
-    
+- (void)requestData : (NSString *)word page:(NSInteger) num {
+    mainstr = [NSString stringWithFormat:@"https://api.itbook.store/1.0/search/%@/%ld", word, num];
     [WebServices executequery:mainstr strpremeter:nil withblock:^(NSData * dbdata, NSError *error) {
         if (dbdata != nil) {
             NSDictionary *maindic = [NSJSONSerialization JSONObjectWithData:dbdata options:NSJSONReadingMutableContainers error:nil];
@@ -104,24 +87,6 @@ NSDictionary * books;
             allResponse = [maindic objectForKey:@"books"];
             NSLog(@"books: %@", allResponse);
             
-         
-//             NSString *nameStr = [response valueForKey:@"name"];
-//             NSString *emailIdStr = [response valueForKey:@"email"];
-            
-//            for(NSDictionary * book in allResponse) {
-//                NSString * loc = [book objectForKey:@"home_owner_location"];
-//                [location addObject:loc];
-//                //NSLog(@"loc: %@", loc);
-//                NSString * addr = [book objectForKey:@"home_owner_address"];
-//                [address addObject:addr];
-//               // NSLog(@"addr: %@", addr);
-//
-//                NSString * img = [book objectForKey:@"home_owner_parking_image"];
-//                [imagearr addObject:img];
-//                NSLog(@"image: %@", img);
-//
-//
-//            }
             [self.tableview reloadData];
             
         }

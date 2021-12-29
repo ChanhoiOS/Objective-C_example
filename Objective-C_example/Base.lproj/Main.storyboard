@@ -16,34 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-s5-2WY">
+                                <rect key="frame" x="0.0" y="44" width="390" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qQ6-JF-11h"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nJc-Hg-AwY">
-                                <rect key="frame" x="0.0" y="44" width="390" height="718"/>
+                                <rect key="frame" x="0.0" y="94" width="390" height="716"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrK-dH-9oW">
-                                <rect key="frame" x="0.0" y="762" width="390" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="gG8-VT-5O3"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xSL-jt-pJG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MrK-dH-9oW" firstAttribute="top" secondItem="nJc-Hg-AwY" secondAttribute="bottom" id="1s7-9m-M7x"/>
-                            <constraint firstItem="MrK-dH-9oW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="N9R-Fo-7Vf"/>
-                            <constraint firstItem="nJc-Hg-AwY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OiM-FP-FBO"/>
-                            <constraint firstItem="nJc-Hg-AwY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PN4-kH-7ms"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MrK-dH-9oW" secondAttribute="bottom" id="Zos-wO-398"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MrK-dH-9oW" secondAttribute="trailing" id="cJc-4w-1Y2"/>
-                            <constraint firstItem="nJc-Hg-AwY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="met-ZS-CAa"/>
+                            <constraint firstItem="R1c-s5-2WY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9ph-CV-FDa"/>
+                            <constraint firstItem="nJc-Hg-AwY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fft-Le-cyQ"/>
+                            <constraint firstItem="R1c-s5-2WY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Im4-KO-Kht"/>
+                            <constraint firstItem="nJc-Hg-AwY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Kue-or-WJF"/>
+                            <constraint firstItem="nJc-Hg-AwY" firstAttribute="top" secondItem="R1c-s5-2WY" secondAttribute="bottom" id="jDb-2V-b9O"/>
+                            <constraint firstItem="R1c-s5-2WY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="m4A-BX-i3A"/>
+                            <constraint firstItem="nJc-Hg-AwY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nd9-87-OAY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="R1c-s5-2WY" id="9Ni-GF-YO5"/>
                         <outlet property="tableview" destination="nJc-Hg-AwY" id="KeZ-WU-ySG"/>
                     </connections>
                 </viewController>
