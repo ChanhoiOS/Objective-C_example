@@ -19,6 +19,12 @@
 		08475455277AE0E0000FE658 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 08475454277AE0E0000FE658 /* WebServices.m */; };
 		08475456277AE0E0000FE658 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 08475454277AE0E0000FE658 /* WebServices.m */; };
 		08475457277AE0E0000FE658 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 08475454277AE0E0000FE658 /* WebServices.m */; };
+		085E9563277BF6120081B968 /* bookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 085E9561277BF6120081B968 /* bookTableViewCell.m */; };
+		085E9564277BF6120081B968 /* bookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 085E9561277BF6120081B968 /* bookTableViewCell.m */; };
+		085E9565277BF6120081B968 /* bookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 085E9561277BF6120081B968 /* bookTableViewCell.m */; };
+		085E9566277BF6120081B968 /* bookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085E9562277BF6120081B968 /* bookTableViewCell.xib */; };
+		085E9567277BF6120081B968 /* bookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085E9562277BF6120081B968 /* bookTableViewCell.xib */; };
+		085E9568277BF6120081B968 /* bookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085E9562277BF6120081B968 /* bookTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,9 @@
 		08475440277ACA7C000FE658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08475453277AE0A2000FE658 /* WebServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServices.h; sourceTree = "<group>"; };
 		08475454277AE0E0000FE658 /* WebServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebServices.m; sourceTree = "<group>"; };
+		085E9560277BF6120081B968 /* bookTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bookTableViewCell.h; sourceTree = "<group>"; };
+		085E9561277BF6120081B968 /* bookTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bookTableViewCell.m; sourceTree = "<group>"; };
+		085E9562277BF6120081B968 /* bookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +130,9 @@
 				08475425277ACA7C000FE658 /* LaunchScreen.storyboard */,
 				08475428277ACA7C000FE658 /* Info.plist */,
 				08475429277ACA7C000FE658 /* main.m */,
+				085E9560277BF6120081B968 /* bookTableViewCell.h */,
+				085E9561277BF6120081B968 /* bookTableViewCell.m */,
+				085E9562277BF6120081B968 /* bookTableViewCell.xib */,
 			);
 			path = "Objective-C_example";
 			sourceTree = "<group>";
@@ -254,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				085E9566277BF6120081B968 /* bookTableViewCell.xib in Resources */,
 				08475427277ACA7C000FE658 /* LaunchScreen.storyboard in Resources */,
 				08475424277ACA7C000FE658 /* Assets.xcassets in Resources */,
 				08475422277ACA75000FE658 /* Main.storyboard in Resources */,
@@ -264,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				085E9567277BF6120081B968 /* bookTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				085E9568277BF6120081B968 /* bookTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +298,7 @@
 			files = (
 				0847541F277ACA75000FE658 /* ViewController.m in Sources */,
 				08475455277AE0E0000FE658 /* WebServices.m in Sources */,
+				085E9563277BF6120081B968 /* bookTableViewCell.m in Sources */,
 				08475419277ACA75000FE658 /* AppDelegate.m in Sources */,
 				0847542A277ACA7C000FE658 /* main.m in Sources */,
 				0847541C277ACA75000FE658 /* SceneDelegate.m in Sources */,
@@ -295,6 +311,7 @@
 			files = (
 				08475456277AE0E0000FE658 /* WebServices.m in Sources */,
 				08475434277ACA7C000FE658 /* Objective_C_exampleTests.m in Sources */,
+				085E9564277BF6120081B968 /* bookTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +321,7 @@
 			files = (
 				08475457277AE0E0000FE658 /* WebServices.m in Sources */,
 				0847543F277ACA7C000FE658 /* Objective_C_exampleUITests.m in Sources */,
+				085E9565277BF6120081B968 /* bookTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

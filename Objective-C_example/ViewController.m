@@ -7,7 +7,7 @@
 
 #import "ViewController.h"
 #import "WebServices.h"
-
+#import "bookTableViewCell.h"
 
 @interface ViewController ()
 
@@ -29,6 +29,11 @@ NSDictionary * books;
     
     _tableview.delegate = self;
     _tableview.dataSource = self;
+    
+    [_tableview registerNib:[UINib nibWithNibName:@"bookTableViewCell" bundle:nil]
+     forCellReuseIdentifier:@"bookCell"];
+    
+    [self.tableview reloadData];
 }
 
 - (IBAction)buttonEvent:(UIButton *)sender {
@@ -42,19 +47,26 @@ NSDictionary * books;
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *identifier = @"bookCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    bookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+    NSString *title = [[[allResponse valueForKey:@"title"] objectAtIndex:indexPath.row]mutableCopy];
     
-    NSMutableDictionary *response = [[[allResponse valueForKey:@"image"] objectAtIndex:indexPath.row]mutableCopy];
-    NSLog(@"table: %@",response);
+    cell.titleLabel.text = title;
     
-    NSString *cellText = [NSString stringWithFormat:@"thumbnail: %@", response];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    }
     
-    [[cell textLabel] setText:cellText];
+    
+
+    
+//    NSMutableDictionary *response = [[[allResponse valueForKey:@"title"] objectAtIndex:indexPath.row]mutableCopy];
+//    NSLog(@"table: %@",response);
+    
+//    NSString *cellText = [NSString stringWithFormat:@"title: %@", response];
+//    
+//    [[cell textLabel] setText:cellText];
     
     return cell;
 }
