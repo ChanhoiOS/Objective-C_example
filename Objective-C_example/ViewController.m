@@ -44,14 +44,34 @@ NSDictionary * books;
     return (unsigned long)allResponse.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *identifier = @"bookCell";
     bookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     NSString *title = [[[allResponse valueForKey:@"title"] objectAtIndex:indexPath.row]mutableCopy];
+    NSString *image = [[[allResponse valueForKey:@"image"] objectAtIndex:indexPath.row]mutableCopy];
+    NSString *subtitle = [[[allResponse valueForKey:@"subtitle"] objectAtIndex:indexPath.row]mutableCopy];
+    NSString *url = [[[allResponse valueForKey:@"url"] objectAtIndex:indexPath.row]mutableCopy];
+    NSString *price = [[[allResponse valueForKey:@"price"] objectAtIndex:indexPath.row]mutableCopy];
+    NSString *isbn13 = [[[allResponse valueForKey:@"isbn13"] objectAtIndex:indexPath.row]mutableCopy];
+    
+    NSURL *thumbnailUrl = [NSURL URLWithString:image];
+    NSData *data = [NSData dataWithContentsOfURL:thumbnailUrl];
     
     cell.titleLabel.text = title;
+    cell.imageView.image = [[UIImage alloc] initWithData:data];
+    cell.subtitle.text = subtitle;
+    cell.urlLabel.text = url;
+    cell.priceLabel.text = price;
+    cell.registerNumber.text = isbn13;
+    
+    
     
 //    if (cell == nil) {
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
