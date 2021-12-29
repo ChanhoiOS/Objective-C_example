@@ -16,6 +16,9 @@
 		0847542A277ACA7C000FE658 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08475429277ACA7C000FE658 /* main.m */; };
 		08475434277ACA7C000FE658 /* Objective_C_exampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08475433277ACA7C000FE658 /* Objective_C_exampleTests.m */; };
 		0847543F277ACA7C000FE658 /* Objective_C_exampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0847543E277ACA7C000FE658 /* Objective_C_exampleUITests.m */; };
+		08475455277AE0E0000FE658 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 08475454277AE0E0000FE658 /* WebServices.m */; };
+		08475456277AE0E0000FE658 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 08475454277AE0E0000FE658 /* WebServices.m */; };
+		08475457277AE0E0000FE658 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 08475454277AE0E0000FE658 /* WebServices.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,8 @@
 		0847543A277ACA7C000FE658 /* Objective-C_exampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Objective-C_exampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0847543E277ACA7C000FE658 /* Objective_C_exampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Objective_C_exampleUITests.m; sourceTree = "<group>"; };
 		08475440277ACA7C000FE658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08475453277AE0A2000FE658 /* WebServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServices.h; sourceTree = "<group>"; };
+		08475454277AE0E0000FE658 /* WebServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +109,7 @@
 		08475416277ACA75000FE658 /* Objective-C_example */ = {
 			isa = PBXGroup;
 			children = (
+				08475452277AE089000FE658 /* Networking */,
 				08475417277ACA75000FE658 /* AppDelegate.h */,
 				08475418277ACA75000FE658 /* AppDelegate.m */,
 				0847541A277ACA75000FE658 /* SceneDelegate.h */,
@@ -135,6 +141,15 @@
 				08475440277ACA7C000FE658 /* Info.plist */,
 			);
 			path = "Objective-C_exampleUITests";
+			sourceTree = "<group>";
+		};
+		08475452277AE089000FE658 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				08475453277AE0A2000FE658 /* WebServices.h */,
+				08475454277AE0E0000FE658 /* WebServices.m */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0847541F277ACA75000FE658 /* ViewController.m in Sources */,
+				08475455277AE0E0000FE658 /* WebServices.m in Sources */,
 				08475419277ACA75000FE658 /* AppDelegate.m in Sources */,
 				0847542A277ACA7C000FE658 /* main.m in Sources */,
 				0847541C277ACA75000FE658 /* SceneDelegate.m in Sources */,
@@ -277,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08475456277AE0E0000FE658 /* WebServices.m in Sources */,
 				08475434277ACA7C000FE658 /* Objective_C_exampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08475457277AE0E0000FE658 /* WebServices.m in Sources */,
 				0847543F277ACA7C000FE658 /* Objective_C_exampleUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
