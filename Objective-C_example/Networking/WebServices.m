@@ -21,13 +21,10 @@
     [mutablerequest setHTTPMethod:@"GET"];//Adding Data is Url With Json
     [mutablerequest setHTTPBody:[parm dataUsingEncoding:NSUTF8StringEncoding]];//Data Encoding UTF-8
     NSURLSessionDataTask * task = [session dataTaskWithRequest:mutablerequest completionHandler:^(NSData *  data, NSURLResponse * response, NSError *  error) {
-        if (data!=nil)
-        {
+        if (data!=nil) {
             NSLog(@"Response %@", data);
-            block(data,error);//Data is NSDATA and Error is NSERROR
-        }
-        else
-        {
+            block(data,error);  //Data is NSDATA and Error is NSERROR
+        } else {
             NSLog(@"error");
             block(nil,error);
         }

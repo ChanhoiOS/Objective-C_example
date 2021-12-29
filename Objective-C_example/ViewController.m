@@ -22,6 +22,7 @@ NSMutableArray * location;
 NSMutableArray * imagearr;
 
 NSDictionary * allResponse;
+NSDictionary * books;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,11 +32,11 @@ NSDictionary * allResponse;
 }
 
 - (IBAction)buttonEvent:(UIButton *)sender {
-    [self requestdata];
+    [self requestData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    return (unsigned long)allResponse.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,7 +49,10 @@ NSDictionary * allResponse;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    NSString *cellText = [NSString stringWithFormat:@"Row Number: %ld", (long)indexPath.row];
+    NSMutableDictionary *response = [[[allResponse valueForKey:@"image"] objectAtIndex:indexPath.row]mutableCopy];
+    NSLog(@"table: %@",response);
+    
+    NSString *cellText = [NSString stringWithFormat:@"thumbnail: %@", response];
     
     [[cell textLabel] setText:cellText];
     
@@ -56,36 +60,36 @@ NSDictionary * allResponse;
 }
 
 
-- (void)requestdata {
-    mainstr = [NSString stringWithFormat:@"https://api.itbook.store/1.0/search/Swift/1"];
+- (void)requestData {
+    mainstr = [NSString stringWithFormat:@"https://api.itbook.store/1.0/search/notebook/1"];
     
     [WebServices executequery:mainstr strpremeter:nil withblock:^(NSData * dbdata, NSError *error) {
-        NSLog(@"Data: %@", dbdata);
-        if (dbdata!=nil)
-        {
-            NSDictionary *maindic = [NSJSONSerialization JSONObjectWithData:dbdata options:NSJSONReadingAllowFragments error:nil];
-            NSLog(@"Response Data: %@", maindic);
+        if (dbdata != nil) {
+            NSDictionary *maindic = [NSJSONSerialization JSONObjectWithData:dbdata options:NSJSONReadingMutableContainers error:nil];
             
-            address = [[NSMutableArray alloc]init];
-            location = [[NSMutableArray alloc]init];
-            imagearr = [[NSMutableArray alloc]init];
+            //address = [[NSMutableArray alloc]init];
+           
+            allResponse = [maindic objectForKey:@"books"];
+            NSLog(@"books: %@", allResponse);
             
-            allResponse = [maindic objectForKey:@"result"];
+         
+//             NSString *nameStr = [response valueForKey:@"name"];
+//             NSString *emailIdStr = [response valueForKey:@"email"];
             
-            for(NSDictionary * containDic in allResponse){
-                NSString * loc = [containDic objectForKey:@"home_owner_location"];
-                [location addObject:loc];
-                //NSLog(@"loc: %@", loc);
-                NSString * addr = [containDic objectForKey:@"home_owner_address"];
-                [address addObject:addr];
-               // NSLog(@"addr: %@", addr);
-                
-                NSString * img = [containDic objectForKey:@"home_owner_parking_image"];
-                [imagearr addObject:img];
-                NSLog(@"image: %@", img);
-                
-                
-            }
+//            for(NSDictionary * book in allResponse) {
+//                NSString * loc = [book objectForKey:@"home_owner_location"];
+//                [location addObject:loc];
+//                //NSLog(@"loc: %@", loc);
+//                NSString * addr = [book objectForKey:@"home_owner_address"];
+//                [address addObject:addr];
+//               // NSLog(@"addr: %@", addr);
+//
+//                NSString * img = [book objectForKey:@"home_owner_parking_image"];
+//                [imagearr addObject:img];
+//                NSLog(@"image: %@", img);
+//
+//
+//            }
             [self.tableview reloadData];
             
         }
